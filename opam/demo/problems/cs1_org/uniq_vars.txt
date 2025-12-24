@@ -1,0 +1,4 @@
+vars[0] = count
+vars[1] = output
+vars[2] = x
+vars[3] = y

@@ -5,7 +5,7 @@ mode="$1"
 source_file="/home/opam/demo/problems/cs1_org.c"			#Source file path - absolute file path.
 entry_func="p"								#Entry point of the main function to add assertions to.
 slice_var="output"							#Variable with respect to which slicing is to be done.
-line_num=34								#The line at which entry func is called. Safety condition is inserted right below this line.
+line_num=38								#The line at which entry func is called. Safety condition is inserted right below this line.
 safety_cond_file=""							#Absolute path to the .txt file condition the safety condition
 
 #Output files get created in following folders:
@@ -96,8 +96,8 @@ for i in "${!vars[@]}";do
 	    for (i = 1; i <= NR; i++) {
 	      print lines[i]
 	      if (i == last_include) {
-		print "#include \"simulate_seu.h\""
-		print "#include \"queue.h\""
+		print "#include \"/home/opam/demo/simulate_seu.h\""
+		print "#include \"/home/opam/demo/queue.h\""
 	      }
 	    }
 	  }
@@ -142,7 +142,7 @@ done
 if [ "$mode" != "testing" ]; then
 	echo "Enter the line number in file: ${source_file} at which the entry function is being called"
 	read line_num 
-	line_num=line_num+2		#Add '2' to account for insertion of the 2 include .h lines.
+	line_num=${line_num}+6		#Add '2' to account for insertion of the 2 include .h lines.
 
 	echo "Enter the path to the safety condition.txt file"
 	read safety_cond_file
